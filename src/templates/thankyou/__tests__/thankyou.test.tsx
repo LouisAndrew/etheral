@@ -8,15 +8,7 @@ import '@testing-library/jest-dom';
 import { Thankyou } from '../thankyou';
 
 describe('Thankyou', () => {
-    const mockData = {
-        total: 12000,
-        paymentNo: 123456,
-        paymentName: 'Louis',
-        expired: '12-3-4',
-        currency: 'IDR',
-    };
-
-    const Element = <Thankyou {...mockData} />;
+    const Element = <Thankyou />;
 
     afterEach(cleanup);
 

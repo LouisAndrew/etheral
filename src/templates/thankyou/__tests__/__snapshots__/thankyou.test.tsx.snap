@@ -5,7 +5,7 @@ exports[`Thankyou matches snapshot 1`] = `
   className="content css-vurnku"
 >
   <div
-    className="inner-wrapper css-iasgit"
+    className="inner-wrapper css-denk7v"
   >
     <div
       className="bg css-neasi4"
@@ -25,38 +25,11 @@ exports[`Thankyou matches snapshot 1`] = `
       className="css-4xdyao"
     >
       <h2
-        className="css-mk3a7k"
+        className="css-rqnlgw"
       >
         THANK YOU FOR YOUR PURCHASE!
 CHECK YOUR EMAIL FOR YOUR ORDER CONFIRMATION
       </h2>
-      <div
-        className="css-r2xo4s"
-      >
-        Please transfer
-         
-        <strong>
-          IDR
-           
-          12000
-        </strong>
-         
-        before 
-        <strong>
-          12-3-4
-        </strong>
-         to:
-        <br />
-        Name: 
-        <strong>
-          Louis
-        </strong>
-        <br />
-        No: 
-        <strong>
-          123456
-        </strong>
-      </div>
     </div>
   </div>
 </div>

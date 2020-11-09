@@ -346,15 +346,18 @@ const Checkout: React.FC<Props> = ({
 
                 const orderDate = new Date();
 
-                const order: Order = {
-                    oid,
+                const userDatas = {
                     buyerName: userData.name,
                     buyerEmail: userData.email,
                     buyerPhone: userData.phone,
-                    buyerUId: user ? user.uid : 'admin',
                     buyerAddr: userData.address,
                     buyerPostal: userData.postal,
+                };
 
+                const order: Order = {
+                    oid,
+                    buyerUId: user ? user.uid : 'admin',
+                    ...userDatas,
                     via: method,
                     channel,
 
@@ -411,13 +414,16 @@ const Checkout: React.FC<Props> = ({
                 // calls verify-order
                 const verifyUrl =
                     process.env.NODE_ENV === 'production'
-                        ? ''
+                        ? 'https://fervent-minsky-bc0840.netlify.app/.netlify/functions/verify-order'
                         : '/verify-order/';
 
                 const verifyBody = {
                     date: getDateReadable(orderDate),
-                    email: userData.email,
                     oid,
+                    channel,
+                    currency,
+                    ...ipaymuData,
+                    ...userDatas,
                 };
 
                 const req = await axios.post(verifyUrl, verifyBody);

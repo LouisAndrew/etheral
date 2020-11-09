@@ -15,6 +15,7 @@ const Sizes: React.FC<Props> = ({ data }) => {
     const textStyling = {
         fontFamily: 'body',
         fontWeight: 'medium',
+        fontSize: [1],
     };
 
     const ringStyling = {
@@ -25,7 +26,12 @@ const Sizes: React.FC<Props> = ({ data }) => {
     return (
         <Flex>
             {data.map(dt => {
-                const sizes = [dt.size * 6, dt.size * 7, dt.size * 8];
+                const sizes = [
+                    dt.size * 8,
+                    dt.size * 9,
+                    dt.size * 10,
+                    dt.size * 10,
+                ];
 
                 return (
                     <Box

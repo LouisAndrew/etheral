@@ -57,7 +57,7 @@ const Table: React.FC<Props> = ({ data }) => {
                     borderBottom: border,
                 }}
             >
-                DIAMATER
+                DIAMEsTER
             </Text>
             <Text
                 {...headingStyle}

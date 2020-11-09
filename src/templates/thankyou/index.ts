@@ -1,5 +1,3 @@
-import { Thankyou, Props } from './thankyou';
-
-export { Props };
+import { Thankyou } from './thankyou';
 
 export default Thankyou;

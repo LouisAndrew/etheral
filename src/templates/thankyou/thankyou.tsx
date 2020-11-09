@@ -1,36 +1,18 @@
 import React from 'react';
 // import styling libs
-import { Box, Heading, Text } from 'rebass';
+import { Box, Heading } from 'rebass';
 // import local components
 
-import thanks from './assets/thx.png';
-import thanksMobile from './assets/thx-mobile.png';
+import thanks from './assets/desktop.jpg';
+import thanksMobile from './assets/mobile.jpg';
 
-/**
- * total: Total amount to be paid on a transaction
- * paymentNo: Payment Number (e.g no Rek)
- * paymentName: Account owner's name. to which account the amount is to be transfered.
- * expired: Date, when the transaction is expired.
- */
-export type Props = {
-    total: number;
-    paymentNo: number;
-    paymentName: string;
-    expired: string;
-    currency: string;
-};
+type Props = {};
 
 /**
  * Thankyou page. Shown after user completes a transaction
  * @param param0 Props
  */
-const Thankyou: React.FC<Props> = ({
-    total,
-    paymentNo,
-    paymentName,
-    expired,
-    currency,
-}) => {
+const Thankyou: React.FC<Props> = () => {
     const THANKYOU_MSG =
         'THANK YOU FOR YOUR PURCHASE!\nCHECK YOUR EMAIL FOR YOUR ORDER CONFIRMATION';
 
@@ -44,8 +26,20 @@ const Thankyou: React.FC<Props> = ({
                     overflow: 'hidden',
                     height: ['80vh', '120vh', '55vh', '65vh'],
                     minHeight: ['unset', 'unset', '400px'],
-                    maxHeight: ['unset', '380px', 'unset', '740px'],
+                    maxHeight: ['unset', '380px', '50vh', 'unset'],
                 }}
+                css={`
+                    /* kinda specific for surface duo. */
+                    @media screen and (min-width: 27em) and (max-width: 48em) and (orientation: portrait) {
+                        max-height: 40vh !important;
+                        margin-top: 16px !important;
+                    }
+
+                    /* kinda specific for ipad(s) */
+                    @media screen and (min-width: 48em) and (max-width: 64em) and (orientation: portrait) {
+                        max-height: 40vh !important;
+                    }
+                `}
             >
                 <Box
                     className="bg"
@@ -89,31 +83,15 @@ const Thankyou: React.FC<Props> = ({
                     px={[4, 6, 7, 9]}
                 >
                     <Heading
-                        color="#000"
-                        fontWeight="medium"
+                        color="#fff"
+                        fontWeight="semiBold"
                         textAlign={['center', 'left']}
-                        fontSize={[2]}
+                        fontSize={[1, 1, 5, 6, 7]}
+                        my="auto"
+                        mx={['auto', 0, 0]}
                     >
                         {THANKYOU_MSG}
                     </Heading>
-                    <Text
-                        fontFamily="body"
-                        fontSize={[1]}
-                        textAlign={['center', 'left']}
-                        mt={[5]}
-                        color="#000"
-                        fontWeight="medium"
-                    >
-                        Please transfer{' '}
-                        <strong>
-                            {currency} {total}
-                        </strong>{' '}
-                        before <strong>{expired}</strong> to:
-                        <br />
-                        Name: <strong>{paymentName}</strong>
-                        <br />
-                        No: <strong>{paymentNo}</strong>
-                    </Text>
                 </Box>
             </Box>
         </Box>
